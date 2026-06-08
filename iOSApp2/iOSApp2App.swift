@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+//  This is the main entry point of the App.
+//  When the app starts, it opens ContentView.
+
 @main
 struct iOSApp2App: App {
     var body: some Scene {
