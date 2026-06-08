@@ -1,5 +1,5 @@
 # iOSApp2
-Second Assignment in iOS
+Third Assignment in iOS
 # iOSApp2 – Local Business Scavenger Hunt App
 
 ## Overview
