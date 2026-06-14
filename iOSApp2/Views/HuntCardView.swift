@@ -12,24 +12,27 @@ struct HuntCardView: View {
     let item: HuntItem
     
     var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 6 ) {
+        HStack(spacing: 16) {
+            
+            Image(systemName: item.isFound ? "checkmark.seal.fill" : "magnifyingglass.circle.fill")
+                .font(.largeTitle)
+                .foregroundColor(item.isFound ? .green : .orange)
+            
+            VStack(alignment: .leading, spacing: 5) {
                 Text(item.businessName)
                     .font(.headline)
                 
+                Text(item.category)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                
                 Text(item.itemName)
                     .font(.subheadline)
-                    .foregroundColor(.secondary)
-                Text(item.isFound ? "Found" : "Not Found")
+                
+                Text(item.isFound ? "Completed" : "Not Found Yet")
                     .font(.caption)
                     .foregroundColor(item.isFound ? .green : .red)
             }
-            
-            Spacer()
-            
-            Image(systemName: item.isFound ? "checkmark.circle.fill" : "questionmark.circle")
-                .font(.title2)
-                .foregroundColor(item.isFound ? .green : .orange)
         }
         .padding(.vertical, 6)
     }

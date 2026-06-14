@@ -7,19 +7,17 @@
 
 import Foundation
 
-//  This model represents one scavenger hunt item.
-//  Each item has a business name, clue, prize description, and found status.
-struct HuntItem: Codable, Identifiable {
+// HuntItem represents one hidden scavenger hunt item.
+// Identifiable allows the item to be displayed in SwiftUI Lists.
+struct HuntItem: Identifiable {
     let id = UUID()
     let businessName: String
     let itemName: String
     let clue: String
     let prize: String
+    let category: String
     
-    //  This tells whether the participant has found this item.
+    // These values change when the user finds the item.
     var isFound: Bool = false
-    
-    //  This is a simple placeholder to show whether a picture was taken.
     var photoTaken: Bool = false
-        
 }

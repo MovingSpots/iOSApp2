@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-//  This is the main entry point of the App.
-//  When the app starts, it opens ContentView.
-
+// Main entry point of the Scavenger Hunt app.
+// This file launches ContentView when the app starts.
 @main
 struct iOSApp2App: App {
     var body: some Scene {

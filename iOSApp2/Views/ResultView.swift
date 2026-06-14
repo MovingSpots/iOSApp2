@@ -11,10 +11,10 @@ struct ResultView: View {
     
     let foundCount: Int
     
-    //  This calculates the reward based on the number of items found.
+    // Reward logic based on assignment instructions.
     var rewardMessage: String {
         if foundCount == 10 {
-            return "Congratulations! You found all 10 items. You receivee a 20% discount code and entry into the $5000 grand prize draw. "
+            return "Excellent! You found all 10 items. You receive a 20% discount code and entry into the $5000 grand prize draw."
         } else if foundCount >= 7 {
             return "Great work! You found \(foundCount) items. You receive a 20% discount code."
         } else if foundCount >= 5 {
@@ -24,6 +24,17 @@ struct ResultView: View {
         }
     }
     
+    var discountCode: String {
+        if foundCount == 10 {
+            return "GRAND20"
+        } else if foundCount >= 7 {
+            return "HUNT20"
+        } else if foundCount >= 5 {
+            return "HUNT10"
+        } else {
+            return "NO CODE"
+        }
+    }
     
     var body: some View {
         VStack(spacing: 24) {
@@ -36,7 +47,7 @@ struct ResultView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
             
-            Text("Items found: \(foundCount) / 10")
+            Text("Items Found: \(foundCount) / 10")
                 .font(.title2)
             
             Text(rewardMessage)
@@ -44,18 +55,30 @@ struct ResultView: View {
                 .multilineTextAlignment(.center)
                 .padding()
             
+            VStack(spacing: 8) {
+                Text("Discount Code")
+                    .font(.headline)
+                
+                Text(discountCode)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.blue)
+            }
+            .padding()
+            .background(Color(.systemGray6))
+            .cornerRadius(16)
+            
             Text("Online submission simulated successfully.")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
             
-            
             Spacer()
         }
         .padding()
-        .navigationTitle("Result")
+        .navigationTitle("Results")
     }
 }
 
 #Preview {
-    ResultView(foundCount: 7)
+    ResultView(foundCount: 10)
 }

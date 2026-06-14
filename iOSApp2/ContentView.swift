@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-//  ContentView is the first screen of vthe app.
-//  It opens the main scavenger hunt list.
+// ContentView loads the main hunt list screen.
 struct ContentView: View {
     var body: some View {
         HuntListView()
